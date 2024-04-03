@@ -8,8 +8,8 @@ const int encoderSwitchPin = 4;  // SW or switch pin
 
 // Declare which fonts we will be using
 extern uint8_t GroteskBold16x32[];
+extern uint8_t Arial_round_16x24[];
 UTFT myGLCD(CTE40,38,39,40,41);
-
 
 String menuItem1 = "> RUN ";
 String menuItem2 = "> Set Temp(";
@@ -140,6 +140,10 @@ void loop()
       myGLCD.setColor(VGA_NAVY);
       myGLCD.drawLine(5,40, 475,40);
       myGLCD.drawLine(10,45, 470,45);
+      myGLCD.setBackColor(VGA_WHITE);
+      myGLCD.setFont(Arial_round_16x24);
+      myGLCD.print("---by IERC Team ", RIGHT, 50);
+      myGLCD.setFont(GroteskBold16x32);
       switch(menuitem){
         case 1: 
         displayMenuItem(menuItem1, 70, true);
